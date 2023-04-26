@@ -1,4 +1,4 @@
-#cart project
+# Cart project
 1) download STS, Eclipse or IntelliJ IDEA.
 2) install java 8+ version.
 3) clone project.
