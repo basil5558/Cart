@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.shopping.cart.exception.CartServiceException;
 import com.shopping.cart.model.Cart;
+import com.shopping.cart.model.Payment;
+import com.shopping.cart.repository.PaymentRepository;
 import com.shopping.cart.service.CartService;
 
 @RestController
@@ -24,6 +26,9 @@ public class CartController {
 
     @Autowired
     CartService cartService;
+    
+    @Autowired
+    PaymentRepository paymentService;
 
     @GetMapping("/getCart/{userId}")
     public ResponseEntity getCart(@PathVariable int userId){
@@ -65,4 +70,9 @@ public class CartController {
         cartService.checkoutCart(userId);
         return new ResponseEntity("Checkout cart completed",HttpStatus.OK);
     }
+    
+    @PostMapping("/payment")
+    public ResponseEntity savePayment(@RequestBody Payment payment){
+    	paymentService.save(payment);
+    return new ResponseEntity("Payment completed Sucessfully",HttpStatus.OK);}
 }
