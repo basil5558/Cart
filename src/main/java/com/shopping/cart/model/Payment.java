@@ -30,6 +30,7 @@ public class Payment {
     int cvv;
     double totalProductPrice;
 }
+
 /* sample input json
 {"personName":"abc",
 "cardNumber":1010101010101010,
